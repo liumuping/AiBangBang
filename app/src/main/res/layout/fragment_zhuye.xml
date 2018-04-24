@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/zhuye_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryWhite"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center_horizontal">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:id="@+id/lt_zhuye_search"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorlgray"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imb_search_search"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="#F0F0F0"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/search_gray" />
+
+                <TextView
+                    android:id="@+id/tv_search_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:text="请输入搜索内容"
+                    android:background="@null"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/zhuye_question_text"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="提问"
+            android:layout_height="35dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:background="@color/colorlgray"/>
+    </LinearLayout>
+<View
+    android:id="@+id/view"
+    android:layout_below="@+id/zhuye_top"
+    android:layout_width="match_parent"
+    android:layout_height="2px"/>
+    <LinearLayout
+        android:id="@+id/ly"
+        android:layout_below="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+        <RadioGroup
+            android:id="@+id/rd_group"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:background="#11000000"
+            android:layout_alignParentBottom="true">
+
+            <RadioButton
+                android:textColor="@drawable/rg_textcolor_selector"
+                android:paddingTop="3dp"
+                android:id="@+id/rd_guanzh"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="关注"
+                android:button="@null"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:layout_height="match_parent"
+                />
+            <RadioButton
+                android:textColor="@drawable/rg_textcolor_selector"
+                android:paddingTop="3dp"
+                android:id="@+id/rd_tuijian"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="推荐"
+                android:button="@null"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:layout_height="match_parent"
+                />
+            <RadioButton
+                android:textColor="@drawable/rg_textcolor_selector"
+                android:paddingTop="3dp"
+                android:id="@+id/rd_rebang"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="热榜"
+                android:button="@null"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:layout_height="match_parent"
+                />
+        </RadioGroup>
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/fram"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ly"
+        >
+<android.support.v4.view.ViewPager
+    android:id="@+id/viewpager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+</android.support.v4.view.ViewPager>
+    </FrameLayout>
+</RelativeLayout>

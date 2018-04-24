@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorlgray"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_tuijian_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:text="标题"
+        android:textSize="25sp"
+        android:layout_marginTop="25dp"/>
+
+    <TextView
+        android:id="@+id/tv_tuijian_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_above="@+id/ly_tuijian_bottom"
+        android:layout_below="@+id/tv_tuijian_title"
+        android:layout_gravity="left"
+        android:textSize="15sp"
+        android:singleLine="true"
+        android:text="内容" />
+    <LinearLayout
+        android:id="@+id/ly_tuijian_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:src="@drawable/cmessage"
+            android:background="@color/colorPrimary"/>
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="@color/colorPrimary"
+            android:src="@drawable/cmessage" />
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="@color/colorPrimary"
+            android:src="@drawable/cmessage" />
+    </LinearLayout>
+
+</RelativeLayout>

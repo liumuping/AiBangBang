@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_margin="2dp">
+
+        <ImageView
+            android:id="@+id/geren_image1"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:src="@drawable/circle1" />
+
+        <TextView
+            android:id="@+id/geren_name1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="已完成帮助"
+            android:textSize="20sp" />
+    </LinearLayout>
+</LinearLayout>
