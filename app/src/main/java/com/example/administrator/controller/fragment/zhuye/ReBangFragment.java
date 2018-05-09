@@ -1,55 +1,111 @@
 package com.example.administrator.controller.fragment.zhuye;
 
+
+import android.os.AsyncTask;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
+
 
 import com.example.administrator.controller.Base.BaseFragment;
 import com.example.administrator.model.bean.ReBang;
 import com.example.administrator.controller.R;
 import com.example.administrator.controller.adapter.zhuyeadapter.ReBangAdapter;
 
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 /**
  * Created by Administrator on 2018/4/10.
  */
 
 public class ReBangFragment extends BaseFragment {
-    private List<ReBang> reBangList = new ArrayList<>();
-
+    private RecyclerView recyclerView;
+    private StaggeredGridLayoutManager layoutManager;
+    public static final MediaType JSON=MediaType.parse("application/json; charset=utf-8");
     @Override
     protected View initView() {
         View view = View.inflate(mcontext, R.layout.rebang, null);
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rb_recycle_view);
-
-        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager
+        recyclerView = (RecyclerView) view.findViewById(R.id.rb_recycle_view);
+        layoutManager = new StaggeredGridLayoutManager
                 (1, StaggeredGridLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(layoutManager);
-        ReBangAdapter adapter = new ReBangAdapter(reBangList);
-        recyclerView.setAdapter(adapter);
         return view;
     }
 
     @Override
     protected void initData() {
-        for (int i = 0; i < 70; i++) {
-            ReBang yundong = new ReBang("风雨不堪", R.drawable.boy,getRandomLengthName("请问你可以帮我吗"));
-            reBangList.add(yundong);
+      String rbUrl = "http://10.0.2.2:8080/ReBangServlet";
+        //    String rbUrl = "http://192.168.1.106:8080/ReBangServlet";
+        new ReBangAsyncTask().execute(rbUrl);
             super.initData();
 
         }
-    }
-    private String getRandomLengthName(String name){
-        Random random=new Random();
-        int length=random.nextInt(10)+1;
-        StringBuilder builder=new StringBuilder();
-        for(int i=0;i<length;i++){
-            builder.append(name);
+
+
+    private class ReBangAsyncTask extends AsyncTask<String, Integer, String> {
+        public ReBangAsyncTask() {
         }
-        return builder.toString();
+
+        @Override
+        protected String doInBackground(String... params) {
+            Response response = null;
+            String results = null;
+            JSONObject json=new JSONObject();
+            try {
+                OkHttpClient okHttpClient = new OkHttpClient();
+                RequestBody requestBody = RequestBody.create(JSON, String.valueOf(json));
+                Request request = new Request.Builder()
+                        .url(params[0])
+                        .post(requestBody)
+                        .build();
+                response=okHttpClient.newCall(request).execute();
+                results=response.body().string();
+                //判断请求是否成功
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            }
+            return results;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            System.out.println(s);
+            List<ReBang> mdata = new ArrayList<>();
+            if (s != null){
+                try {
+                    JSONArray results = new JSONArray(s);
+                    for(int i=0;i<results.length();i++){
+                        ReBang reBang = new ReBang();
+                        JSONObject js = results.getJSONObject(i);
+                        reBang.setName(js.getString("rbusername"));
+                        reBang.setData(js.getString("rbdata"));
+                        mdata.add(reBang);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            recyclerView.setLayoutManager(layoutManager);
+            recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));
+            ReBangAdapter adapter = new ReBangAdapter(mdata);
+            recyclerView.setAdapter(adapter);
+        }
     }
+
 
 }

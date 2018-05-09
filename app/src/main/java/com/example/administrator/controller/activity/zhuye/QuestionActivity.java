@@ -66,7 +66,8 @@ public class QuestionActivity extends AppCompatActivity {
         }
     }
     private void Qusetion(String title, String data) {
-        String questionUrl = "http://10.0.2.2:8080/QuestionServlet";
+       String questionUrl = "http://10.0.2.2:8080/QuestionServlet";
+        //  String questionUrl = "http://192.168.1.106:8080/QuestionServlet";
         new QuestionAsyncTask().execute(questionUrl, title, data);
     }
 

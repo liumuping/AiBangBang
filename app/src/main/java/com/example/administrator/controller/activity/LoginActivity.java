@@ -92,7 +92,9 @@ public class LoginActivity extends Activity {
 
     }
     private void Login(String username, String password) {
-        String loginUrl = "http://10.0.2.2:8080/LoginServlet";
+      String loginUrl = "http://10.0.2.2:8080/LoginServlet";
+        //   String loginUrl = "http://192.168.1.106:8080/LoginServlet";
+
         new LoginAsyncTask().execute(loginUrl, username, password);
     }
 

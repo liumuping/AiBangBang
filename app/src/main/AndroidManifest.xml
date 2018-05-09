@@ -34,7 +34,8 @@
         <activity android:name=".activity.geren.MyMessageActivity" />
         <activity android:name=".activity.geren.WaitHelpActivity" />
         <activity android:name=".activity.geren.FinishHelpActivity" />
-        <activity android:name=".activity.zhuye.TuijianActivity"></activity>
+        <activity android:name=".activity.zhuye.TuijianActivity" />
+        <activity android:name=".activity.chat.ChatMessageActivity"></activity>
     </application>
 
 </manifest>
