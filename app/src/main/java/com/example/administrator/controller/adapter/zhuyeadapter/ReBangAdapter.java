@@ -37,6 +37,7 @@ public class ReBangAdapter extends RecyclerView.Adapter<ReBangAdapter.ViewHolder
                int position=holder.getAdapterPosition();
                ReBang reBang=mReBangList.get(position);
                Intent intent=new Intent(context,RebangActivity.class);
+               intent.putExtra(RebangActivity.REBANG_DATA,reBang.getData());
                context.startActivity(intent);
            }
        });

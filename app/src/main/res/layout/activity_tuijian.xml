@@ -26,7 +26,6 @@
         android:layout_below="@+id/tv_tuijian_title"
         android:layout_gravity="left"
         android:textSize="15sp"
-        android:singleLine="true"
         android:text="内容" />
     <LinearLayout
         android:id="@+id/ly_tuijian_bottom"
@@ -50,6 +49,7 @@
             android:background="@color/colorPrimary"
             android:src="@drawable/cmessage" />
         <ImageButton
+            android:id="@+id/im_tj_btn"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"

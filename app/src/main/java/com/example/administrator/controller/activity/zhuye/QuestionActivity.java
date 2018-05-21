@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.administrator.controller.R;
+import com.example.administrator.controller.activity.MainActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,6 +22,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+
 
 /**
  * Created by Administrator on 2018/4/21.
@@ -59,16 +61,17 @@ public class QuestionActivity extends AppCompatActivity {
         String data = questiondata.getText().toString();//数据
         if (!"".equals(title) && !"".equals(data))
         {
-            Qusetion(questiontitle.getText().toString(), questiondata.getText().toString());
+            Qusetion(questiontitle.getText().toString(), questiondata.getText().toString(), MainActivity.user.getUserid());
         } else {
             Toast.makeText(QuestionActivity.this, "标题或者数据不能为空",
                     Toast.LENGTH_SHORT).show();
         }
     }
-    private void Qusetion(String title, String data) {
+    private void Qusetion(String title, String data,int userid) {
        String questionUrl = "http://10.0.2.2:8080/QuestionServlet";
+
         //  String questionUrl = "http://192.168.1.106:8080/QuestionServlet";
-        new QuestionAsyncTask().execute(questionUrl, title, data);
+        new QuestionAsyncTask().execute(questionUrl, title, data ,String.valueOf(userid));
     }
 
     private class QuestionAsyncTask extends AsyncTask<String, Integer, String> {
@@ -82,6 +85,7 @@ public class QuestionActivity extends AppCompatActivity {
             try {
                 json.put("title",params[1]);
                 json.put("data",params[2]);
+                json.put("userid",params[3]);
                 OkHttpClient okHttpClient = new OkHttpClient();
                 RequestBody requestBody = RequestBody.create(JSON, String.valueOf(json));
                 Request request = new Request.Builder()

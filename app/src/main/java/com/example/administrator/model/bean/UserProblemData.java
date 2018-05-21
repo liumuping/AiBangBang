@@ -9,15 +9,33 @@ import java.io.Serializable;
 public class UserProblemData  implements Serializable {
     private String questiontitle;
     private String questiondata;
-    private int Id;
+    private int userid;
+    private int questionid;
 
-    public String getQuestitle() {
+    public int getQuestionid() {
+        return questionid;
+    }
+
+    public void setQuestionid(int questionid) {
+        this.questionid = questionid;
+    }
+
+    public String getQuestiontitle() {
         return questiontitle;
     }
 
-    public void setQuestitle(String questitle) {
-        this.questiontitle = questitle;
+    public void setQuestiontitle(String questiontitle) {
+        this.questiontitle = questiontitle;
     }
+
+    public int getUserid() {
+        return userid;
+    }
+
+    public void setUserid(int userid) {
+        this.userid = userid;
+    }
+
 
     public String getQuestiondata() {
         return questiondata;
@@ -28,13 +46,7 @@ public class UserProblemData  implements Serializable {
     }
 
 
-    public int getId() {
-        return Id;
-    }
 
-    public void setId(int id) {
-        Id = id;
-    }
 
 
 }

@@ -2,6 +2,7 @@ package com.example.administrator.controller.fragment.zhuye;
 
 
 import android.os.AsyncTask;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -36,6 +37,8 @@ import okhttp3.Response;
 public class ReBangFragment extends BaseFragment {
     private RecyclerView recyclerView;
     private StaggeredGridLayoutManager layoutManager;
+    private ReBangAdapter adapter;
+    private SwipeRefreshLayout rb_swipe_refresh;
     public static final MediaType JSON=MediaType.parse("application/json; charset=utf-8");
     @Override
     protected View initView() {
@@ -43,6 +46,7 @@ public class ReBangFragment extends BaseFragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.rb_recycle_view);
         layoutManager = new StaggeredGridLayoutManager
                 (1, StaggeredGridLayoutManager.VERTICAL);
+        rb_swipe_refresh=(SwipeRefreshLayout)view.findViewById(R.id.rb_swipe_refresh);
         return view;
     }
 
@@ -52,6 +56,7 @@ public class ReBangFragment extends BaseFragment {
         //    String rbUrl = "http://192.168.1.106:8080/ReBangServlet";
         new ReBangAsyncTask().execute(rbUrl);
             super.initData();
+            Listenner();
 
         }
 
@@ -102,10 +107,40 @@ public class ReBangFragment extends BaseFragment {
             }
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));
-            ReBangAdapter adapter = new ReBangAdapter(mdata);
+            adapter = new ReBangAdapter(mdata);
             recyclerView.setAdapter(adapter);
         }
     }
+    private void Listenner() {
+        rb_swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshData();
+            }
+        });
+    }
+
+    private void refreshData() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+                }catch (InterruptedException e){
+                    e.printStackTrace();
+                }
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        initData();
+                        adapter.notifyDataSetChanged();
+                        rb_swipe_refresh.setRefreshing(false);
+                    }
+                });
+            }
+        }).start();
+    }
+
 
 
 }

@@ -135,17 +135,15 @@ public class LoginActivity extends Activity {
                     JSONObject results = new JSONObject(s);
                     String loginresult = results.getString("result");
                     System.out.println(loginresult);
-                    UserBaseInfo user = new UserBaseInfo();
                     if(!"0".equals(loginresult)){
-                        user.setUsername(results.getString("username"));
-                        user.setPassword(results.getString("password"));
+                        MainActivity.user.setUserid(results.getInt("userid"));
+                        MainActivity.user.setUsername(results.getString("username"));
+                        MainActivity.user.setPassword(results.getString("password"));
                         Toast.makeText(LoginActivity.this,
                                 "正在登陆，请稍后",Toast.LENGTH_LONG).show();
                         Intent intent=new Intent(LoginActivity.this,
                                 MainActivity.class);
-                        Bundle mBundle = new Bundle();
-                        mBundle.putSerializable("user",user);
-                        intent.putExtras(mBundle);
+                        //intent.putExtra(MainActivity.USER_ID,userBaseInfo.getUserid());
                         startActivity(intent);
                         finish();
                     }else{

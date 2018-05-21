@@ -40,6 +40,7 @@ public class RegistActivity extends AppCompatActivity {
         initView();
         initListener();
 
+
     }
 
     private void initListener() {

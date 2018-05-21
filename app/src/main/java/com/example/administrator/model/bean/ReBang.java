@@ -7,10 +7,28 @@ import java.io.Serializable;
  */
 
 public class ReBang {
-    private int id;
+
     private String name;
     private int imageId;
     private String data;
+    private int rbid;
+    private int userid;
+
+    public int getRbid() {
+        return rbid;
+    }
+
+    public void setRbid(int rbid) {
+        this.rbid = rbid;
+    }
+
+    public int getUserid() {
+        return userid;
+    }
+
+    public void setUserid(int userid) {
+        this.userid = userid;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -35,7 +53,5 @@ public class ReBang {
     public int getImageId(){
         return imageId;
     }
-    public int getId() {return id;}
-
-    public void setId(int id) {this.id = id;}
+    
 }

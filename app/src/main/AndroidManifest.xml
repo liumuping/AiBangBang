@@ -35,7 +35,8 @@
         <activity android:name=".activity.geren.WaitHelpActivity" />
         <activity android:name=".activity.geren.FinishHelpActivity" />
         <activity android:name=".activity.zhuye.TuijianActivity" />
-        <activity android:name=".activity.chat.ChatMessageActivity"></activity>
+        <activity android:name=".activity.chat.ChatMessageActivity"/>
+        <activity android:name=".activity.chat.SearchPeopleActivity"/>
     </application>
 
 </manifest>

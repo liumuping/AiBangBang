@@ -9,14 +9,12 @@ import java.io.Serializable;
 public class UserBaseInfo implements Serializable {
     private String username;
     private String password;
-    private int Id;
+    private int userid;
 
-    public int getId() {
-        return Id;
-    }
+    public int getUserid() { return userid; }
 
-    public void setId(int id) {
-        Id = id;
+    public void setUserid(int userid) {
+        this.userid = userid;
     }
 
     public String getUsername() {

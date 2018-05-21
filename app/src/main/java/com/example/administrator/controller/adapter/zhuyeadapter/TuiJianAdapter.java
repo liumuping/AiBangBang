@@ -9,9 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.administrator.controller.activity.zhuye.RebangActivity;
 import com.example.administrator.controller.activity.zhuye.TuijianActivity;
-import com.example.administrator.model.bean.ReBang;
 import com.example.administrator.model.bean.TuiJian;
 import com.example.administrator.controller.R;
 
@@ -23,13 +21,13 @@ import java.util.List;
 
 public class TuiJianAdapter extends RecyclerView.Adapter<TuiJianAdapter.ViewHolder> {
    private List<TuiJian>mTuiJianList;
-    private Context context;
+   private Context context;
    public TuiJianAdapter(List<TuiJian> tuiJianList){
        mTuiJianList=tuiJianList;
    }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        context=parent.getContext();
+       context=parent.getContext();
        View view= LayoutInflater.from(parent.getContext()).
                inflate(R.layout.tuijian_item,parent,false);
         final  ViewHolder holder=new ViewHolder(view);
@@ -39,6 +37,7 @@ public class TuiJianAdapter extends RecyclerView.Adapter<TuiJianAdapter.ViewHold
                 int position=holder.getAdapterPosition();
                 TuiJian tuiJian=mTuiJianList.get(position);
                 Intent intent=new Intent(context,TuijianActivity.class);
+                intent.putExtra(TuijianActivity.TUIJIAN_DATA,tuiJian.getData());
                 context.startActivity(intent);
             }
         });
