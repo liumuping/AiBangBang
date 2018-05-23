@@ -5,11 +5,11 @@ import android.widget.LinearLayout;
 
 import com.example.administrator.controller.Base.BaseFragment;
 import com.example.administrator.controller.R;
-import com.example.administrator.controller.activity.geren.FinishHelpActivity;
-import com.example.administrator.controller.activity.geren.MyMessageActivity;
-import com.example.administrator.controller.activity.geren.ReviewActivity;
-import com.example.administrator.controller.activity.geren.SettingActivity;
-import com.example.administrator.controller.activity.geren.WaitHelpActivity;
+import com.example.administrator.controller.activity.geren.Finish.FinishHelpActivity;
+import com.example.administrator.controller.activity.geren.Mymessage.MyMessageActivity;
+import com.example.administrator.controller.activity.geren.Review.ReviewActivity;
+import com.example.administrator.controller.activity.geren.Setting.SettingActivity;
+import com.example.administrator.controller.activity.geren.WaitHelp.WaitHelpActivity;
 
 /**
  * Created by Administrator on 2018/3/24.

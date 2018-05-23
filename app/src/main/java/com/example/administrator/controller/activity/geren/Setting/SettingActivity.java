@@ -1,4 +1,4 @@
-package com.example.administrator.controller.activity.geren;
+package com.example.administrator.controller.activity.geren.Setting;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

@@ -29,14 +29,16 @@
         <activity android:name=".activity.zhuye.RebangActivity" />
         <activity android:name=".activity.RegistActivity" />
         <activity android:name=".activity.zhuye.QuestionActivity" />
-        <activity android:name=".activity.geren.SettingActivity" />
-        <activity android:name=".activity.geren.ReviewActivity" />
-        <activity android:name=".activity.geren.MyMessageActivity" />
-        <activity android:name=".activity.geren.WaitHelpActivity" />
-        <activity android:name=".activity.geren.FinishHelpActivity" />
+        <activity android:name=".activity.geren.Setting.SettingActivity" />
+        <activity android:name=".activity.geren.Review.ReviewActivity" />
+        <activity android:name=".activity.geren.Mymessage.MyMessageActivity" />
+        <activity android:name=".activity.geren.WaitHelp.WaitHelpActivity" />
+        <activity android:name=".activity.geren.Finish.FinishHelpActivity" />
         <activity android:name=".activity.zhuye.TuijianActivity" />
-        <activity android:name=".activity.chat.ChatMessageActivity"/>
-        <activity android:name=".activity.chat.SearchPeopleActivity"/>
+        <activity android:name=".activity.chat.ChatMessageActivity" />
+        <activity android:name=".activity.chat.SearchPeopleActivity" />
+        <activity android:name=".activity.geren.Finish.FHActivity" />
+        <activity android:name=".activity.geren.Review.RVActivity"></activity>
     </application>
 
 </manifest>
