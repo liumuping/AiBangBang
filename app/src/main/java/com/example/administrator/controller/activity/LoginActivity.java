@@ -2,16 +2,19 @@ package com.example.administrator.controller.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.administrator.controller.R;
-import com.example.administrator.model.bean.UserBaseInfo;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,7 +38,11 @@ public class LoginActivity extends Activity {
     private EditText login_password;
     private Button login_btn;
     private Button regist_btn;
+    private CheckBox remember;
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
     public static final MediaType JSON=MediaType.parse("application/json; charset=utf-8");
+
 
 
     @Override
@@ -44,6 +51,18 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.login);
         initView();
         initListener();
+        pref= PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isRemember=pref.getBoolean("remember",false);
+        if (isRemember){
+            //将账号和密码设置在文本框
+            String  username=pref.getString("username","");
+            String password=pref.getString("password","");
+            login_username.setText(username);
+            login_password.setText(password);
+            remember.setChecked(true);
+
+        }
+
     }
 
     private void initListener() {
@@ -77,11 +96,13 @@ public class LoginActivity extends Activity {
         login_password=(EditText) findViewById(R.id.login_password);
         login_btn=(Button) findViewById(R.id.login_btn);
         regist_btn=(Button) findViewById(R.id.regist_btn);
+        remember=(CheckBox)findViewById(R.id.remember);
     }
     private void login() {
 
         String username = login_username.getText().toString();//账号
         String password = login_password.getText().toString();//密码
+
         if (!"".equals(username) && !"".equals(password))
         {
             Login(login_username.getText().toString(), login_password.getText().toString());
@@ -139,11 +160,19 @@ public class LoginActivity extends Activity {
                         MainActivity.user.setUserid(results.getInt("userid"));
                         MainActivity.user.setUsername(results.getString("username"));
                         MainActivity.user.setPassword(results.getString("password"));
-                        Toast.makeText(LoginActivity.this,
-                                "正在登陆，请稍后",Toast.LENGTH_LONG).show();
+                        editor=pref.edit();
+                        if (remember.isChecked()){
+                            //检查复选框是否被选中
+                            editor.putBoolean("remember",true);
+                            editor.putString("username",MainActivity.user.getUsername());
+                            editor.putString("password",MainActivity.user.getPassword());
+
+                        }else {
+                            editor.clear();
+                        }
+                        editor.apply();
                         Intent intent=new Intent(LoginActivity.this,
                                 MainActivity.class);
-                        //intent.putExtra(MainActivity.USER_ID,userBaseInfo.getUserid());
                         startActivity(intent);
                         finish();
                     }else{

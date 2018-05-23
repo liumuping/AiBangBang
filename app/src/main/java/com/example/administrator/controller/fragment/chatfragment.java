@@ -8,8 +8,6 @@ import android.widget.LinearLayout;
 
 import com.example.administrator.controller.Base.BaseFragment;
 import com.example.administrator.controller.activity.chat.SearchPeopleActivity;
-import com.example.administrator.controller.activity.zhuye.QuestionActivity;
-import com.example.administrator.controller.activity.zhuye.SearchActivity;
 import com.example.administrator.model.bean.Chat;
 import com.example.administrator.controller.R;
 import com.example.administrator.controller.adapter.ChatAdapter;

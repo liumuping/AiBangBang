@@ -39,7 +39,7 @@ public class TuiJianFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        for (int i = 0; i < 70; i++) {
+        for (int i = 0; i < 2; i++) {
             TuiJian yundong = new TuiJian("晴空万里", R.drawable.boy,getRandomLengthName("请问你可以帮我吗"));
             tuiJianList.add(yundong);
             super.initData();
