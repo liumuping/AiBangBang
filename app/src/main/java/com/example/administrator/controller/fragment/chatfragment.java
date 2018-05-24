@@ -1,6 +1,7 @@
 package com.example.administrator.controller.fragment;
 
 import android.content.Intent;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
@@ -31,6 +32,7 @@ public class chatfragment extends BaseFragment implements View.OnClickListener{
         recyclerView=(RecyclerView)view.findViewById(R.id.chat_recycle_view);
         layoutManager=new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
+        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));
         ChatAdapter adapter=new ChatAdapter(chatList);
         layout = view.findViewById(R.id.chat_ly_search);
         recyclerView.setAdapter(adapter);

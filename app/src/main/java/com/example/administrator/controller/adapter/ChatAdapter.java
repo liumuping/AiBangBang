@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.administrator.controller.activity.chat.ChatMessageActivity;
+import com.example.administrator.controller.activity.zhuye.RebangActivity;
 import com.example.administrator.model.bean.Chat;
 import com.example.administrator.controller.R;
 
@@ -31,15 +32,15 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
          View view= LayoutInflater.from(parent.getContext()).
                inflate(R.layout.chat_item,parent,false);
         final ViewHolder holder=new ViewHolder(view);
-        holder.chatView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position=holder.getAdapterPosition();
-                Chat chat=mChatList.get(position);
-                Intent intent=new Intent(context,ChatMessageActivity.class);
-                context.startActivity(intent);
-            }
-        });
+            holder.chatView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position=holder.getAdapterPosition();
+                    Chat chat=mChatList.get(position);
+                    Intent intent=new Intent(context,ChatMessageActivity.class);
+                    context.startActivity(intent);
+                }
+            });
         return holder;
     }
 

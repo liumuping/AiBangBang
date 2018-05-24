@@ -3,9 +3,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    android:background="@color/colorPrimary">
+    <ImageView
+        android:id="@+id/wait_im_back"
+        style="@style/back_im_style"
+        android:layout_margin="2dp"/>
     <TextView
         android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="等待帮助"
+        android:textColor="@color/blak"
+        android:textSize="20sp" />
+</RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="我是等待帮助页面"/>
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:id="@+id/wt_rd_group"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorlgray"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_myapply"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingTop="3dp"
+                android:text="我发起的"
+                android:textColor="@drawable/rg_textcolor_selector"
+                android:textSize="15sp" />
+
+            <View
+                android:layout_width="5px"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryWhite" />
+
+            <RadioButton
+                android:id="@+id/rb_myaccept"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingTop="3dp"
+                android:text="我接收的"
+                android:textColor="@drawable/rg_textcolor_selector"
+                android:textSize="15sp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fram"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/waitviewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v4.view.ViewPager>
+    </FrameLayout>
 </LinearLayout>

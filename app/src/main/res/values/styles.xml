@@ -19,5 +19,11 @@
         <item name="android:textColor">@drawable/rg_textcolor_selector</item>
         <item name="android:textSize">10sp</item>
     </style>
+    <style name="back_im_style" >
+        <!-- Customize your theme here. -->
+        <item name="android:layout_width">35dp</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:src">@drawable/back</item>
+    </style>
 
 </resources>

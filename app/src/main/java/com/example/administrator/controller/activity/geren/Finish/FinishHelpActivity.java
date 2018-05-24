@@ -1,13 +1,26 @@
 package com.example.administrator.controller.activity.geren.Finish;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 
+import com.example.administrator.controller.Base.BaseFragment;
 import com.example.administrator.controller.R;
 import com.example.administrator.controller.adapter.gerenadapter.FinishAdapter;
+import com.example.administrator.controller.adapter.gerenadapter.FinishPageAdapter;
+import com.example.administrator.controller.adapter.gerenadapter.WaitHelpPageAdapter;
+import com.example.administrator.controller.fragment.geren.finish.FinishMyacceptfragment;
+import com.example.administrator.controller.fragment.geren.finish.FinishMyapplyfragment;
+import com.example.administrator.controller.fragment.geren.waithelp.Myacceptfragment;
+import com.example.administrator.controller.fragment.geren.waithelp.Myapplyfragment;
 import com.example.administrator.model.bean.Finish;
 import com.example.administrator.model.bean.TuiJian;
 
@@ -15,39 +28,103 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class FinishHelpActivity extends AppCompatActivity {
-    private RecyclerView finish_recycleview;
-    private List<Finish>finishList=new ArrayList<>();
+import okhttp3.MediaType;
 
+public class FinishHelpActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener,
+        RadioGroup.OnCheckedChangeListener{
+    public static final int PAGE_ONE = 0;
+    public static final int PAGE_TWO = 1;
+    private RadioGroup finish_rd_group;
+    private RadioButton finish_rb_myapply;
+    private RadioButton finish_rb_myaccept;
+    private int position;
+    private ViewPager viewpager;
+    private List<BaseFragment> mBaseFragment;
+    private Fragment mContent;
+    private ImageView finish_im_back;
+    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finish_help);
-        initData();
-        finish_recycleview=(RecyclerView)findViewById(R.id.finish_recycleview);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        finish_recycleview.setLayoutManager(layoutManager);
-        FinishAdapter adapter = new FinishAdapter(finishList);
-        finish_recycleview.setAdapter(adapter);
+        initview();
+        initFragment();
+        initdata();
+        listenner();
+    }
+
+    private void listenner() {
+        finish_im_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+    }
+
+    private void initview() {
+
+        viewpager = findViewById(R.id.finishviewpager);
+        finish_rd_group = (RadioGroup) findViewById(R.id.finish_rd_group);
+        finish_rb_myapply = (RadioButton) findViewById(R.id.finish_rb_myapply);
+        finish_rb_myaccept = (RadioButton) findViewById(R.id.finish_rb_myaccept);
+        finish_im_back=(ImageView)findViewById(R.id.finish_im_back);
+
 
 
     }
 
-    private void initData() {
-        for (int i = 0; i < 2; i++) {
-            Finish yundong = new Finish("你好",R.drawable.boy,"2018-05-18",getRandomLengthName("如果可以的话，请帮帮我"));
-            finishList.add(yundong);
+    private void initdata() {
+        viewpager.addOnPageChangeListener(this);
+        viewpager.setCurrentItem(0);
+        finish_rd_group.check(R.id.finish_rb_myapply);
+        viewpager.setAdapter(new FinishPageAdapter(getSupportFragmentManager()));
+        finish_rd_group.setOnCheckedChangeListener(this);
 
 
+    }
+
+    private void initFragment() {
+        mBaseFragment = new ArrayList();
+        mBaseFragment.add(new FinishMyapplyfragment());
+        mBaseFragment.add(new FinishMyacceptfragment());
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+        if (state == 2) {
+            switch (viewpager.getCurrentItem()) {
+                case PAGE_ONE:
+                    finish_rb_myapply.setChecked(true);
+                    break;
+                case PAGE_TWO:
+                    finish_rb_myaccept.setChecked(true);
+                    break;
+            }
         }
     }
-    private String getRandomLengthName(String name){
-        Random random=new Random();
-        int length=random.nextInt(10)+1;
-        StringBuilder builder=new StringBuilder();
-        for(int i=0;i<length;i++){
-            builder.append(name);
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+        switch (checkedId) {
+            case R.id.finish_rb_myapply:
+                viewpager.setCurrentItem(PAGE_ONE);
+                break;
+            case R.id.finish_rb_myaccept:
+                viewpager.setCurrentItem(PAGE_TWO);
+                break;
         }
-        return builder.toString();
     }
 }

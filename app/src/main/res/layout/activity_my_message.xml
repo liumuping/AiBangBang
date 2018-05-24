@@ -2,44 +2,118 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginTop="20dp">
+    android:orientation="vertical">
     <LinearLayout
+        android:id="@+id/ly_headpicture"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="120dp"
+        android:gravity="center_horizontal">
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="修改用户名："
+            android:layout_height="match_parent"
+            android:text="头像"
             android:textSize="20sp"
-            />
+            android:gravity="center"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="match_parent"
+            android:gravity="right">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:src="@color/colormblue"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="@drawable/shape_biankuang">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="昵称"
+            android:textSize="20sp"
+            android:gravity="center"/>
         <EditText
             android:id="@+id/my_message_username"
             android:layout_width="0dp"
-            android:layout_weight="2"
-            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:layout_height="match_parent"
             android:maxLength="16"
-            android:singleLine="true"/>
+            android:singleLine="true"
+            android:gravity="center_vertical"
+            android:background="@null"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="@drawable/shape_biankuang">
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="修改密码："
+            android:layout_height="match_parent"
+            android:text="手机"
             android:textSize="20sp"
-            />
+            android:gravity="center"/>
         <EditText
-            android:id="@+id/my_message_password"
+            android:id="@+id/my_message_phone"
             android:layout_width="0dp"
-            android:layout_weight="2"
-            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:layout_height="match_parent"
             android:maxLength="16"
-            android:singleLine="true"/>
+            android:singleLine="true"
+            android:gravity="center_vertical"
+            android:background="@null"/>
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="@drawable/shape_biankuang">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="QQ"
+            android:textSize="20sp"
+            android:gravity="center"/>
+        <EditText
+            android:id="@+id/my_message_qq"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="match_parent"
+            android:maxLength="16"
+            android:singleLine="true"
+            android:gravity="center_vertical"
+            android:background="@null"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="@drawable/shape_biankuang">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="所在地"
+            android:textSize="20sp"
+            android:gravity="center"/>
+        <EditText
+            android:id="@+id/my_message_address"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="match_parent"
+            android:maxLength="16"
+            android:singleLine="true"
+            android:gravity="center_vertical"
+            android:background="@null"/>
+    </LinearLayout>
+
 </LinearLayout>
