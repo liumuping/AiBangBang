@@ -30,7 +30,6 @@ public class TuijianActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent1=new Intent(TuijianActivity.this, ChatMessageActivity.class);
                 startActivity(intent1);
-                finish();
             }
         });
     }

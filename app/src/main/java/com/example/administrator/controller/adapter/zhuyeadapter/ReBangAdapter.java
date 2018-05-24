@@ -2,6 +2,7 @@ package com.example.administrator.controller.adapter.zhuyeadapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,8 +38,11 @@ public class ReBangAdapter extends RecyclerView.Adapter<ReBangAdapter.ViewHolder
                int position=holder.getAdapterPosition();
                ReBang reBang=mReBangList.get(position);
                Intent intent=new Intent(context,RebangActivity.class);
-               intent.putExtra(RebangActivity.REBANG_DATA,reBang.getData());
+               Bundle bundle=new Bundle();
+               bundle.putSerializable("reBang",reBang);
+               intent.putExtras(bundle);
                context.startActivity(intent);
+
            }
        });
         return holder;

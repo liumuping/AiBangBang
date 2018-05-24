@@ -9,26 +9,37 @@ import android.widget.TextView;
 
 import com.example.administrator.controller.R;
 import com.example.administrator.controller.activity.chat.ChatMessageActivity;
+import com.example.administrator.model.bean.ReBang;
 
 /**
  * Created by Administrator on 2018/4/16.
  */
 
 public class RebangActivity extends AppCompatActivity{
-public static final String REBANG_DATA="rebang_data";
 private ImageButton im_rb_btn;
+private ReBang reBang;
+private TextView tv_rebang_data;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rebang);
-        Intent intent=getIntent();
+        initview();
+        initdata();
+    }
+
+    private void initview() {
+        tv_rebang_data=(TextView)findViewById(R.id.tv_rebang_data);
+    }
+
+    private void initdata() {
+        reBang = (ReBang) getIntent().getSerializableExtra("reBang");
         im_rb_btn=(ImageButton)findViewById(R.id.im_rb_btn);
-        String rebang_data=intent.getStringExtra(REBANG_DATA);
-        TextView tv_rebang_data=(TextView)findViewById(R.id.tv_rebang_data);
+        String rebang_data=reBang.getData();
         tv_rebang_data.setText(rebang_data);
         Listenner();
-
     }
+
+
 
     private void Listenner() {
         im_rb_btn.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +47,7 @@ private ImageButton im_rb_btn;
             public void onClick(View view) {
                 Intent intent1=new Intent(RebangActivity.this, ChatMessageActivity.class);
                 startActivity(intent1);
-                finish();
+
             }
         });
     }
