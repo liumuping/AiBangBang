@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.administrator.controller">
 
     <!-- To access Google+ APIs: -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +24,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="OIgTLNIOEjqbbTBFxcyKXIngwUh1n6X5" />
+
         <activity android:name=".activity.LauncherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,8 +53,31 @@
         <activity android:name=".activity.zhuye.TuijianActivity" />
         <activity android:name=".activity.chat.ChatMessageActivity" />
         <activity android:name=".activity.chat.SearchPeopleActivity" />
-        <activity android:name=".activity.geren.Finish.FHActivity" />
-        <activity android:name=".activity.geren.Review.RVActivity"></activity>
+        <activity android:name=".activity.geren.Finish.FHapplyActivity" />
+        <activity android:name=".activity.geren.Review.RVhaveActivity" />
+        <activity android:name=".activity.geren.Finish.FHacceptActivity" />
+        <activity android:name=".activity.geren.WaitHelp.WHacceptActivity" />
+        <activity android:name=".activity.geren.WaitHelp.WHapplyActivity" />
+        <activity android:name=".activity.geren.Review.RVwaitActivity" />
+        <activity android:name=".activity.geren.Setting.LocationActivity" />
+        <activity android:name=".activity.geren.Mymessage.UpdataMyMessageActivity" />
+        <activity android:name=".activity.geren.Setting.UpdataPassawordActivity" />
+        <activity android:name=".activity.geren.Mymessage.UpdataPhoto"/>
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+        <provider
+            android:authorities="com.example.administrator.controller.fileprovider"
+            android:name="android.support.v4.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+        
     </application>
 
 </manifest>

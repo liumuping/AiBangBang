@@ -3,6 +3,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/mymessage_im_back"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_margin="2dp"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="我的信息"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
     <LinearLayout
         android:id="@+id/ly_headpicture"
         android:layout_width="match_parent"
@@ -10,110 +41,135 @@
         android:gravity="center_horizontal">
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="头像"
-            android:textSize="20sp"
-            android:gravity="center"/>
+            android:textSize="20sp" />
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="4"
             android:layout_height="match_parent"
+            android:layout_weight="4"
             android:gravity="right">
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:src="@color/colormblue"/>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:src="@color/colormblue" />
         </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:background="@drawable/shape_biankuang">
+        android:background="@drawable/shape_biankuang"
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="昵称"
-            android:textSize="20sp"
-            android:gravity="center"/>
-        <EditText
+            android:textSize="20sp" />
+
+        <TextView
             android:id="@+id/my_message_username"
             android:layout_width="0dp"
-            android:layout_weight="4"
             android:layout_height="match_parent"
-            android:maxLength="16"
-            android:singleLine="true"
+            android:layout_weight="4"
+            android:background="@null"
             android:gravity="center_vertical"
-            android:background="@null"/>
+            android:maxLength="16"
+            android:singleLine="true" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:background="@drawable/shape_biankuang">
+        android:background="@drawable/shape_biankuang"
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="手机"
-            android:textSize="20sp"
-            android:gravity="center"/>
-        <EditText
+            android:textSize="20sp" />
+
+        <TextView
             android:id="@+id/my_message_phone"
             android:layout_width="0dp"
-            android:layout_weight="4"
             android:layout_height="match_parent"
-            android:maxLength="16"
-            android:singleLine="true"
+            android:layout_weight="4"
+            android:background="@null"
             android:gravity="center_vertical"
-            android:background="@null"/>
+            android:maxLength="16"
+            android:singleLine="true" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:background="@drawable/shape_biankuang">
+        android:background="@drawable/shape_biankuang"
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="QQ"
-            android:textSize="20sp"
-            android:gravity="center"/>
-        <EditText
-            android:id="@+id/my_message_qq"
+            android:gravity="center"
+            android:text="性别"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/my_message_sex"
             android:layout_width="0dp"
-            android:layout_weight="4"
             android:layout_height="match_parent"
-            android:maxLength="16"
-            android:singleLine="true"
+            android:layout_weight="4"
+            android:background="@null"
             android:gravity="center_vertical"
-            android:background="@null"/>
+            android:maxLength="16"
+            android:singleLine="true" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:background="@drawable/shape_biankuang">
+        android:background="@drawable/shape_biankuang"
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:text="所在地"
-            android:textSize="20sp"
-            android:gravity="center"/>
-        <EditText
-            android:id="@+id/my_message_address"
+            android:gravity="center"
+            android:text="年龄"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/my_message_age"
             android:layout_width="0dp"
-            android:layout_weight="4"
             android:layout_height="match_parent"
-            android:maxLength="16"
-            android:singleLine="true"
+            android:layout_weight="4"
+            android:background="@null"
             android:gravity="center_vertical"
-            android:background="@null"/>
+            android:maxLength="16"
+            android:singleLine="true" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/updata_my_message"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="编辑信息"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="20sp"
+        android:background="@color/colorhblue"/>
 
 </LinearLayout>

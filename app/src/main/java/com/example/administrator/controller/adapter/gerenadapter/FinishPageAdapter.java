@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import com.example.administrator.controller.activity.geren.WaitHelp.WaitHelpActivity;
 import com.example.administrator.controller.fragment.geren.finish.FinishMyacceptfragment;
 import com.example.administrator.controller.fragment.geren.finish.FinishMyapplyfragment;
-import com.example.administrator.controller.fragment.geren.waithelp.Myacceptfragment;
-import com.example.administrator.controller.fragment.geren.waithelp.Myapplyfragment;
 
 /**
  * Created by Administrator on 2018/4/10.

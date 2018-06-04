@@ -1,9 +1,11 @@
 package com.example.administrator.model.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2018/4/14.
  */
-    public class TuiJian {
+    public class TuiJian implements Serializable{
         private String name;
         private int imageId;
         private String data;

@@ -16,8 +16,8 @@ import com.example.administrator.controller.Base.BaseFragment;
 
 import com.example.administrator.controller.R;
 import com.example.administrator.controller.adapter.gerenadapter.WaitHelpPageAdapter;
-import com.example.administrator.controller.fragment.geren.waithelp.Myacceptfragment;
-import com.example.administrator.controller.fragment.geren.waithelp.Myapplyfragment;
+import com.example.administrator.controller.fragment.geren.waithelp.WaitMyacceptfragment;
+import com.example.administrator.controller.fragment.geren.waithelp.WaitMyapplyfragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,8 +80,8 @@ public class WaitHelpActivity extends AppCompatActivity implements ViewPager.OnP
 
     private void initFragment() {
         mBaseFragment = new ArrayList();
-        mBaseFragment.add(new Myapplyfragment());
-        mBaseFragment.add(new Myacceptfragment());
+        mBaseFragment.add(new WaitMyapplyfragment());
+        mBaseFragment.add(new WaitMyacceptfragment());
     }
 
     @Override

@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
 
 import com.example.administrator.controller.activity.geren.WaitHelp.WaitHelpActivity;
+import com.example.administrator.controller.fragment.geren.review.RVhavefragment;
+import com.example.administrator.controller.fragment.geren.review.RVwaitfragment;
 import com.example.administrator.controller.fragment.geren.waithelp.WaitMyacceptfragment;
 import com.example.administrator.controller.fragment.geren.waithelp.WaitMyapplyfragment;
 
@@ -13,19 +15,19 @@ import com.example.administrator.controller.fragment.geren.waithelp.WaitMyapplyf
  * Created by Administrator on 2018/4/10.
  */
 
-public class WaitHelpPageAdapter extends FragmentPagerAdapter {
+public class ReviewPageAdapter extends FragmentPagerAdapter {
 
     private final int PAGER_COUNT = 2;
-    private WaitMyapplyfragment myapplyfragment = null;
-    private WaitMyacceptfragment myacceptfragment = null;
+    private RVhavefragment vhavefragment = null;
+    private RVwaitfragment vwaitfragment = null;
 
 
 
 
-    public WaitHelpPageAdapter(FragmentManager fm) {
+    public ReviewPageAdapter(FragmentManager fm) {
         super(fm);
-        myapplyfragment = new WaitMyapplyfragment();
-        myacceptfragment = new WaitMyacceptfragment();
+        vhavefragment = new RVhavefragment();
+        vwaitfragment = new RVwaitfragment();
 
     }
 
@@ -51,10 +53,10 @@ public class WaitHelpPageAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         switch (position) {
             case WaitHelpActivity.PAGE_ONE:
-                fragment = myapplyfragment;
+                fragment = vhavefragment;
                 break;
             case WaitHelpActivity.PAGE_TWO:
-                fragment = myacceptfragment;
+                fragment = vwaitfragment;
                 break;
         }
         return fragment;

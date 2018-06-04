@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/wait_im_back"
         style="@style/back_im_style"
-        android:layout_margin="2dp"/>
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

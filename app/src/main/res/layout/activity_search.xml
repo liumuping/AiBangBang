@@ -13,11 +13,7 @@
 
         <ImageView
             android:id="@+id/icon_back"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginLeft="15dp"
-            android:src="@drawable/back"
-            android:background="@color/colorlblue"/>
+            style="@style/back_im_style"/>
 
         <LinearLayout
             android:layout_width="match_parent"

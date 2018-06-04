@@ -9,8 +9,10 @@
         android:background="@color/colorPrimary">
         <ImageView
             android:id="@+id/finish_im_back"
-            style="@style/back_im_style"
-            android:layout_margin="2dp"/>
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/back"
+            android:layout_margin="2dp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

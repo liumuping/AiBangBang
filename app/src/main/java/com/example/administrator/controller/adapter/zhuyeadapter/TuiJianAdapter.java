@@ -2,6 +2,7 @@ package com.example.administrator.controller.adapter.zhuyeadapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +38,10 @@ public class TuiJianAdapter extends RecyclerView.Adapter<TuiJianAdapter.ViewHold
                 int position=holder.getAdapterPosition();
                 TuiJian tuiJian=mTuiJianList.get(position);
                 Intent intent=new Intent(context,TuijianActivity.class);
-                intent.putExtra(TuijianActivity.TUIJIAN_DATA,tuiJian.getData());
+                Bundle bundle=new Bundle();
+                bundle.putSerializable("tuiJian",tuiJian);
+                intent.putExtras(bundle);
+
                 context.startActivity(intent);
             }
         });

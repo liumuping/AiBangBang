@@ -7,7 +7,6 @@ import java.io.Serializable;
  */
 
 public class UserProblemData  implements Serializable {
-    private String questiontitle;
     private String questiondata;
     private int userid;
     private int questionid;
@@ -18,14 +17,6 @@ public class UserProblemData  implements Serializable {
 
     public void setQuestionid(int questionid) {
         this.questionid = questionid;
-    }
-
-    public String getQuestiontitle() {
-        return questiontitle;
-    }
-
-    public void setQuestiontitle(String questiontitle) {
-        this.questiontitle = questiontitle;
     }
 
     public int getUserid() {

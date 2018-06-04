@@ -4,8 +4,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -14,19 +12,12 @@ import android.widget.RadioGroup;
 
 import com.example.administrator.controller.Base.BaseFragment;
 import com.example.administrator.controller.R;
-import com.example.administrator.controller.adapter.gerenadapter.FinishAdapter;
 import com.example.administrator.controller.adapter.gerenadapter.FinishPageAdapter;
-import com.example.administrator.controller.adapter.gerenadapter.WaitHelpPageAdapter;
 import com.example.administrator.controller.fragment.geren.finish.FinishMyacceptfragment;
 import com.example.administrator.controller.fragment.geren.finish.FinishMyapplyfragment;
-import com.example.administrator.controller.fragment.geren.waithelp.Myacceptfragment;
-import com.example.administrator.controller.fragment.geren.waithelp.Myapplyfragment;
-import com.example.administrator.model.bean.Finish;
-import com.example.administrator.model.bean.TuiJian;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import okhttp3.MediaType;
 

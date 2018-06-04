@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="5dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,7 +15,7 @@
             android:id="@+id/tuijian_image"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_margin="2dp"/>
+            android:layout_margin="5dp"/>
 
         <TextView
             android:id="@+id/tuijian_username"
@@ -30,5 +32,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textSize="20sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+
+    </LinearLayout>
 
 </LinearLayout>
