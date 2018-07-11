@@ -35,14 +35,24 @@ public class UpdataPhoto extends AppCompatActivity {
     private Button choose;
     private ImageView picture;
     private Uri imageUri;
+    private ImageView photo_im_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_updata_photo);
-        takePhoto=(Button)findViewById(R.id.take_photo);
-        choose=(Button)findViewById(R.id.choose);
-        picture=(ImageView)findViewById(R.id.picture);
+        initview();
+        initListenner();
+
+    }
+
+    private void initListenner() {
+        photo_im_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         choose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,6 +94,14 @@ public class UpdataPhoto extends AppCompatActivity {
             }
         });
     }
+
+    private void initview() {
+        photo_im_back=(ImageView)findViewById(R.id.photo_im_back) ;
+        takePhoto=(Button)findViewById(R.id.take_photo);
+        choose=(Button)findViewById(R.id.choose);
+        picture=(ImageView)findViewById(R.id.picture);
+    }
+
     public void openAlbum(){
         Intent intent=new Intent("android.intent.action.GET_CONTENT");
         intent.setType("image/*");

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,7 +18,7 @@ import com.example.administrator.model.bean.ReBang;
  */
 
 public class RebangActivity extends AppCompatActivity{
-private ImageButton im_rb_btn;
+private Button rb_bottom_btn;
 private ReBang reBang;
 private TextView tv_rebang_data;
 private ImageView back;
@@ -31,13 +32,12 @@ private ImageView back;
 
     private void initview() {
         tv_rebang_data=(TextView)findViewById(R.id.tv_rebang_data);
-        im_rb_btn=(ImageButton)findViewById(R.id.im_rb_btn);
+        rb_bottom_btn=(Button)findViewById(R.id.rb_bottom_btn);
         back=(ImageView)findViewById(R.id.rebang_im_back);
     }
 
     private void initdata() {
         reBang = (ReBang) getIntent().getSerializableExtra("reBang");
-
         String rebang_data=reBang.getData();
         tv_rebang_data.setText(rebang_data);
         Listenner();
@@ -46,7 +46,7 @@ private ImageView back;
 
 
     private void Listenner() {
-        im_rb_btn.setOnClickListener(new View.OnClickListener() {
+        rb_bottom_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent1=new Intent(RebangActivity.this, ChatMessageActivity.class);

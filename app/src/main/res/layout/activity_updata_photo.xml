@@ -3,21 +3,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@color/colorPrimary">
+            <ImageView
+                android:id="@+id/photo_im_back"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/back"
+                android:layout_margin="2dp"/>
+
+            <TextView
+                android:id="@+id/head_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="选择照片"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/take_photo"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
         android:layout_height="wrap_content"
+        android:background="@color/colormblue"
         android:text="拍照" />
 
     <Button
         android:id="@+id/choose"
-        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_width="150dp"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:text="选择照片" />
+        android:background="@color/colormblue"
+        android:text="相册" />
 
     <ImageView
         android:id="@+id/picture"
+        android:layout_marginTop="10dp"
         android:layout_width="400dp"
         android:layout_height="400dp" />
 </LinearLayout>

@@ -17,6 +17,7 @@ public class SettingActivity extends AppCompatActivity {
     private ImageView setting_im_back;
     private LinearLayout ly_setting_location;
     private LinearLayout ly_setting_updatapassword;
+    private LinearLayout ly_setting_myguanzhu;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
@@ -30,6 +31,7 @@ public class SettingActivity extends AppCompatActivity {
         setting_im_back=(ImageView) findViewById(R.id.setting_im_back);
         ly_setting_location=(LinearLayout)findViewById(R.id.ly_setting_location);
         ly_setting_updatapassword=(LinearLayout)findViewById(R.id.ly_setting_updatapassword);
+        ly_setting_myguanzhu=(LinearLayout)findViewById(R.id.ly_setting_guanzhu);
     }
     private void initListen() {
         setting_im_back.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +51,13 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(SettingActivity.this,UpdataPassawordActivity.class);
+                startActivity(intent);
+            }
+        });
+        ly_setting_myguanzhu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(SettingActivity.this,MyGZActivity.class);
                 startActivity(intent);
             }
         });

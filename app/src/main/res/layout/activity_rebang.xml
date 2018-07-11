@@ -36,7 +36,6 @@
     android:layout_below="@+id/ly_head"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="10dp"
     android:background="@color/colorPrimaryWhite"
     android:orientation="vertical">
     <LinearLayout
@@ -80,48 +79,49 @@
         </LinearLayout>
 
     </LinearLayout>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/colorlgray">
     <TextView
         android:id="@+id/tv_rebang_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
         android:layout_gravity="left"
         android:textSize="20sp"
         android:text="内容"
         android:background="@color/colorlgray"/>
+    </LinearLayout>
 </LinearLayout>
+
+
 
     <LinearLayout
         android:id="@+id/ly_rebang_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryWhite">
 
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_weight="1"
+
+        <Button
+            android:id="@+id/rb_bottom_btn"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:src="@drawable/cmessage"
-            android:background="@color/colorPrimary"/>
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:background="@color/colorPrimary"
-            android:src="@drawable/cmessage" />
-        <ImageButton
-            android:id="@+id/im_rb_btn"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:background="@color/colorPrimary"
-            android:src="@drawable/cmessage" />
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/shape_corner"
+            android:gravity="center"
+            android:text="聊天"
+            android:textSize="20sp"/>
     </LinearLayout>
 </RelativeLayout>

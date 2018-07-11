@@ -58,12 +58,15 @@ public class MainActivity extends FragmentActivity  {
              case R.id.chat:
                  position=1;
                  break;
-             case R.id.qita :
+             case R.id.geren :
                  position=2;
                  break;
-             case R.id.geren:
-                 position=3;
-                 break;
+//             case R.id.qita :
+//                 position=2;
+//                 break;
+//             case R.id.geren:
+//                 position=3;
+//                 break;
                  default:
                      position=0;
                      break;
@@ -114,8 +117,9 @@ public class MainActivity extends FragmentActivity  {
      mBaseFragment=new ArrayList<>();
         mBaseFragment.add(new zhuyefragment());
         mBaseFragment.add(new chatfragment());
-        mBaseFragment.add(new qitafragment());
+       // mBaseFragment.add(new qitafragment());
         mBaseFragment.add(new gerenfragment());
+
     }
 
     private void initView() {

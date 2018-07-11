@@ -3,6 +3,9 @@
 
     <style name="my_cheackbox">
         <item name="android:colorControlActivated">@color/colorhblue</item>
-        <item name="android:colorControlNormal">@color/colorPrimaryWhite</item>
+        <item name="android:colorControlNormal">@color/colorPrimaryWhite</item>`
+    </style>
+    <style name="LauncherActivityTheme" parent="AppTheme">
+        <item name="android:statusBarColor">@color/colormblue</item>
     </style>
 </resources>

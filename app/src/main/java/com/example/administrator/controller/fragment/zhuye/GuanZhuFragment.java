@@ -40,13 +40,13 @@ public class GuanZhuFragment extends BaseFragment {
     @Override
     protected void initData() {
         for (int i=0;i<1;i++){
-            GuanZhu yundong=new GuanZhu( "运动",R.drawable.circle4);
+            GuanZhu yundong=new GuanZhu( "运动",R.drawable.yundong);
             guanZhuList.add(yundong);
-            GuanZhu chuxing=new GuanZhu( "出行",R.drawable.circle1);
+            GuanZhu chuxing=new GuanZhu( "出行",R.drawable.chuxing);
             guanZhuList.add(chuxing);
-            GuanZhu youxi=new GuanZhu( "游戏",R.drawable.circle2);
+            GuanZhu youxi=new GuanZhu( "游戏",R.drawable.youxi);
             guanZhuList.add(youxi);
-            GuanZhu meisi=new GuanZhu( "美食",R.drawable.circle3);
+            GuanZhu meisi=new GuanZhu( "美食",R.drawable.meishi);
             guanZhuList.add(meisi);
         super.initData();
         Listenner();

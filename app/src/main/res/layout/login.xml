@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/icon2"
+    android:background="@drawable/bangbang"
     android:fitsSystemWindows="true">
 
     <LinearLayout
@@ -51,7 +51,7 @@
                 android:paddingRight="15dp"
                 android:paddingTop="15dp"
                 android:text="账号"
-                android:textColor="@color/blue"
+                android:textColor="@color/colorPrimaryWhite"
                 android:textStyle="bold" />
 
             <EditText
@@ -62,7 +62,7 @@
                 android:hint="请输入帐号"
                 android:maxLength="16"
                 android:singleLine="true"
-                android:textColor="@color/blak"
+                android:textColor="@color/colorPrimaryWhite"
                 android:textColorHint="@color/colorPrimaryWhite"
                 android:textCursorDrawable="@null"
                 android:textSize="16dp" />
@@ -79,7 +79,7 @@
                 android:paddingRight="15dp"
                 android:paddingTop="15dp"
                 android:text="密码"
-                android:textColor="@color/blue"
+                android:textColor="@color/colorPrimaryWhite"
                 android:textStyle="bold" />
 
             <EditText
@@ -91,7 +91,7 @@
                 android:inputType="textPassword"
                 android:maxLength="16"
                 android:singleLine="true"
-                android:textColor="@color/blak"
+                android:textColor="@color/colorPrimaryWhite"
                 android:textColorHint="@color/colorPrimaryWhite"
                 android:textCursorDrawable="@null"
                 android:textSize="16sp" />

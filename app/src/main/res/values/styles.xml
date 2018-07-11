@@ -7,6 +7,9 @@
         <item name="colorPrimaryDark">#e6e4e4</item>
         <item name="colorAccent">#b9bab9</item>
     </style>
+    <style name="LauncherActivityTheme" parent="AppTheme">
+    </style>
+
 
     <style name="button_tag_style" >
         <!-- Customize your theme here. -->
@@ -26,6 +29,8 @@
         <item name="android:src">@drawable/back</item>
         <item name="android:layout_margin">2dp</item>
     </style>
+
+
 
 
 </resources>

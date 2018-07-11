@@ -59,18 +59,18 @@
             android:textColor="@drawable/rg_textcolor_selector"
             android:textSize="10sp" />
 
-        <RadioButton
-            android:id="@+id/qita"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@null"
-            android:drawableTop="@drawable/qita_drawable_selector"
-            android:gravity="center"
-            android:paddingTop="3dp"
-            android:text="其他"
-            android:textColor="@drawable/rg_textcolor_selector"
-            android:textSize="10sp" />
+        <!--<RadioButton-->
+            <!--android:id="@+id/qita"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:button="@null"-->
+            <!--android:drawableTop="@drawable/qita_drawable_selector"-->
+            <!--android:gravity="center"-->
+            <!--android:paddingTop="3dp"-->
+            <!--android:text="其他"-->
+            <!--android:textColor="@drawable/rg_textcolor_selector"-->
+            <!--android:textSize="10sp" />-->
 
         <RadioButton
             android:id="@+id/geren"
