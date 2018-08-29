@@ -1,6 +1,7 @@
 package com.example.administrator.controller.activity;
 
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -17,9 +18,8 @@ import com.example.administrator.controller.Base.BaseFragment;
 import com.example.administrator.controller.R;
 import com.example.administrator.controller.fragment.chatfragment;
 import com.example.administrator.controller.fragment.gerenfragment;
-import com.example.administrator.controller.fragment.qitafragment;
 import com.example.administrator.controller.fragment.zhuyefragment;
-import com.example.administrator.model.bean.UserBaseInfo;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,17 +30,17 @@ public class MainActivity extends FragmentActivity  {
     private List<BaseFragment> mBaseFragment;
     private int position;
     private Fragment mContent;
-    public  static UserBaseInfo user=new UserBaseInfo();
+//    public  static UserBaseInfo user=new UserBaseInfo();
+    public  static String uid;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        uid =intent.getStringExtra("uid");
         initView();
-        System.out.println("----------->"+user.getUserid());
+//        System.out.println("----------->"+user.getUserid());
         initFragment();
         setListener();
-
-
-
     }
 
     private void setListener() {

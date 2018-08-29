@@ -39,23 +39,13 @@ public class TuiJianFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        for (int i = 0; i < 2; i++) {
-            TuiJian yundong = new TuiJian("晴空万里", R.drawable.boy,getRandomLengthName("请问你可以帮我吗"));
-            tuiJianList.add(yundong);
+
             super.initData();
             Listenner();
 
-        }
+
     }
-    private String getRandomLengthName(String name){
-        Random random=new Random();
-        int length=random.nextInt(10)+1;
-        StringBuilder builder=new StringBuilder();
-        for(int i=0;i<length;i++){
-            builder.append(name);
-        }
-        return builder.toString();
-    }
+
     private void Listenner() {
         tj_swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

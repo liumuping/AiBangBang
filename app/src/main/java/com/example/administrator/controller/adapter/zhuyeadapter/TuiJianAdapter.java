@@ -60,18 +60,18 @@ public class TuiJianAdapter extends RecyclerView.Adapter<TuiJianAdapter.ViewHold
         TuiJian tuiJian=mTuiJianList.get(position);
         holder.tuijianuserName.setText(tuiJian.getName());
         holder.tuijianData.setText(tuiJian.getData());
-        holder.tuijianImage.setImageResource(tuiJian.getImageId());
+//        holder.tuijianImage.setImageResource(tuiJian.getImageId());
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         View tuijianView;
-        ImageView tuijianImage;
+//        ImageView tuijianImage;
         TextView tuijianuserName;
         TextView tuijianData;
         public ViewHolder(View view){
             super(view);
             tuijianView=view;
-            tuijianImage=(ImageView)view.findViewById(R.id.tuijian_image);
+//            tuijianImage=(ImageView)view.findViewById(R.id.tuijian_image);
             tuijianuserName=(TextView)view.findViewById(R.id.tuijian_username);
             tuijianData=(TextView)view.findViewById(R.id.tuijian_data_text);
         }

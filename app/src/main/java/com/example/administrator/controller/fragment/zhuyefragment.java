@@ -46,7 +46,7 @@ public class zhuyefragment extends BaseFragment implements ViewPager.OnPageChang
         rd_tuijian=(RadioButton)view.findViewById(R.id.rd_tuijian) ;
         rd_rebang=(RadioButton)view.findViewById(R.id.rd_rebang) ;
         viewpager.setAdapter(new ZhuyePagerAdapter(getChildFragmentManager()));
-        rd_group.check(R.id.rd_guanzh);
+        rd_group.check(R.id.rd_tuijian);
         layout = view.findViewById(R.id.lt_zhuye_search);
         zhuye_question_text=(TextView)view.findViewById(R.id.zhuye_question_text);
         return view;
@@ -59,7 +59,7 @@ public class zhuyefragment extends BaseFragment implements ViewPager.OnPageChang
         zhuye_question_text.setOnClickListener(this);
         rd_group.setOnCheckedChangeListener(this);
         viewpager.addOnPageChangeListener(this);
-        viewpager.setCurrentItem(0);
+        viewpager.setCurrentItem(1);
 
 
     }

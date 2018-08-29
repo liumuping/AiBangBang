@@ -108,7 +108,7 @@ public class LoginActivity extends Activity {
 
         if (!"".equals(username) && !"".equals(password))
         {
-            Login(login_username.getText().toString(), login_password.getText().toString());
+            Login(username, password);
         } else {
             Toast.makeText(LoginActivity.this, "账号或者密码有误",
                     Toast.LENGTH_SHORT).show();
@@ -116,8 +116,8 @@ public class LoginActivity extends Activity {
 
     }
     private void Login(String username, String password) {
-      String loginUrl = "http://10.0.2.2:8080/LoginServlet";
-        //   String loginUrl = "http://192.168.1.106:8080/LoginServlet";
+        String loginUrl = "http://119.23.226.102/aibangbang/v1/login";
+
 
         new LoginAsyncTask().execute(loginUrl, username, password);
     }
@@ -132,7 +132,7 @@ public class LoginActivity extends Activity {
             String results = null;
             JSONObject json=new JSONObject();
             try {
-                json.put("username",params[1]);
+                json.put("phone",params[1]);
                 json.put("password",params[2]);
                 OkHttpClient okHttpClient = new OkHttpClient();
                 RequestBody requestBody = RequestBody.create(JSON, String.valueOf(json));
@@ -157,18 +157,19 @@ public class LoginActivity extends Activity {
             if (s != null){
                 try {
                     JSONObject results = new JSONObject(s);
-                    String loginresult = results.getString("result");
+                    String loginresult = results.getString("code");
+                    String data = results.getString("data");
+                    JSONObject tokenResult = new JSONObject(data);
+                    String uid = tokenResult.getString("uid");
+                    System.out.println(uid);
                     System.out.println(loginresult);
-                    if(!"0".equals(loginresult)){
-                        MainActivity.user.setUserid(results.getInt("userid"));
-                        MainActivity.user.setUsername(results.getString("username"));
-                        MainActivity.user.setPassword(results.getString("password"));
+                    if("200".equals(loginresult)){
                         editor=pref.edit();
                         if (remember.isChecked()){
                             //检查复选框是否被选中
                             editor.putBoolean("remember",true);
-                            editor.putString("username",MainActivity.user.getUsername());
-                            editor.putString("password",MainActivity.user.getPassword());
+                            editor.putString("username",login_username.getText().toString());
+                            editor.putString("password",login_password.getText().toString());
 
                         }else {
                             editor.clear();
@@ -176,6 +177,7 @@ public class LoginActivity extends Activity {
                         editor.apply();
                         Intent intent=new Intent(LoginActivity.this,
                                 MainActivity.class);
+                        intent.putExtra("uid",uid);
                         startActivity(intent);
                         finish();
                     }else{

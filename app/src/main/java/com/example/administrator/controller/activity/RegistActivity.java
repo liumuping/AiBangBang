@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.administrator.controller.R;
+import com.example.administrator.utils.Regex;
 
 
 import org.json.JSONException;
@@ -30,8 +31,9 @@ import okhttp3.Response;
 
 public class RegistActivity extends AppCompatActivity {
     private EditText regist_username;
-    private EditText regist_password;
-    private Button re_regist_btn;
+    private EditText regist_cheack;
+    private Button regist_account_btn;
+    private Button regist_cheack_btn;
     public static final MediaType JSON=MediaType.parse("application/json; charset=utf-8");
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,39 +46,54 @@ public class RegistActivity extends AppCompatActivity {
     }
 
     private void initListener() {
-        re_regist_btn.setOnClickListener(new View.OnClickListener() {
+        regist_cheack_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 regist();
             }
         });
+        regist_account_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                registaccount();
+            }
+        });
 
     }
-
     private void regist() {
         String username = regist_username.getText().toString();//账号
-        String password = regist_password.getText().toString();//密码
-        if (!"".equals(username) && !"".equals(password))
+        String cheack = regist_cheack.getText().toString();//密码
+        if (Regex.getStringusername(username))
         {
-            Regist(regist_username.getText().toString(), regist_password.getText().toString());
+//            editText.setFocusable(true);
+//            editText.setFocusableInTouchMode(true);
+//            editText.setClickable(true);
+            // 如果验证手机号码正确，设置验证码框可以输入
+            regist_cheack.setFocusable(true);
+            regist_cheack.setFocusableInTouchMode(true);
+            regist_cheack.setClickable(true);
+            System.out.println("------------------------------");
+            Regist(regist_username.getText().toString());
         } else {
-            Toast.makeText(RegistActivity.this, "账号或者密码有误",
+            Toast.makeText(RegistActivity.this, "请输入正确的手机号",
                     Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void Regist(String username, String password) {
-        String registUrl = "http://10.0.2.2:8080/RegistServlet";
+    private void Regist(String username) {
+        String registUrl ="http://119.23.226.102/aibangbang/v1/register-codes";
+//        String registUrl = "http://10.0.2.2:8080/RegistServlet";
         // String registUrl = "http://192.168.1.106:8080/RegistServlet";
-        new RegistAsyncTask().execute(registUrl, username, password);
+        new RegistAsyncTask().execute(registUrl, username);
     }
 
     private void initView() {
         regist_username=(EditText)findViewById(R.id.regist_username);
-        regist_password=(EditText)findViewById(R.id.regist_password);
-        re_regist_btn=(Button) findViewById(R.id.re_regist_btn);
+        regist_cheack=(EditText)findViewById(R.id.regist_cheack);
+        regist_account_btn=(Button) findViewById(R.id.regist_account_btn);
+        regist_cheack_btn=(Button)findViewById(R.id.regist_cheack_btn);
     }
-
+//  获取验证码
     public class RegistAsyncTask extends AsyncTask<String, Integer, String> {
         public RegistAsyncTask() {
         }
@@ -86,8 +103,8 @@ public class RegistActivity extends AppCompatActivity {
             String results = null;
             JSONObject json=new JSONObject();
             try {
-                json.put("username",params[1]);
-                json.put("password",params[2]);
+                json.put("phone",params[1]);
+//                json.put("password",params[2]);
                 OkHttpClient okHttpClient = new OkHttpClient();
                 RequestBody requestBody = RequestBody.create(JSON, String.valueOf(json));
                 Request request = new Request.Builder()
@@ -111,15 +128,13 @@ public class RegistActivity extends AppCompatActivity {
             if (s != null){
                 try {
                     JSONObject results = new JSONObject(s);
-                    int registresult = results.getInt("result");
+                    String registresult = results.getString("code");
+//                    int registresult = results.getInt("result");
                     System.out.println("=======================>"+registresult);
-                    if(registresult!=0){
-                        Toast.makeText(RegistActivity.this,
-                                "正在注册，请稍后",Toast.LENGTH_LONG).show();
-                        Intent intent=new Intent(RegistActivity.this,
-                                LoginActivity.class);
-                        startActivity(intent);
-                        finish();
+                    if("200".equals(registresult)){
+                        // 当验证码发送成功将按钮进行隐藏显示
+                        regist_cheack_btn.setVisibility(View.GONE);
+                        regist_account_btn.setVisibility(View.VISIBLE);
                     }else{
                         Toast.makeText(RegistActivity.this,"账号或密码错误",
                                 Toast.LENGTH_LONG).show();
@@ -135,5 +150,78 @@ public class RegistActivity extends AppCompatActivity {
 
             }
        }
+    }
+// 对验证码进行验证
+    private void registaccount() {
+
+        String username = regist_username.getText().toString();//账号
+        String cheack = regist_cheack.getText().toString();//验证码
+        if (Regex.getStringusername(username))
+        {
+            RegistCheack(username,cheack);
+        } else {
+            Toast.makeText(RegistActivity.this, "请检查输入是否正确",
+                    Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private void RegistCheack(String username, String cheack) {
+        String registUrl ="http://119.23.226.102/aibangbang/v1/register-codes/"+username;
+        System.out.println(registUrl);
+        new RegistCheackAsyncTask().execute(registUrl, username,cheack);
+    }
+
+    public class RegistCheackAsyncTask extends AsyncTask<String, Integer, String> {
+        public RegistCheackAsyncTask() {
+        }
+        @Override
+        protected String doInBackground(String... params) {
+            Response response = null;
+            String results = null;
+            try {
+                OkHttpClient okHttpClient = new OkHttpClient();
+                Request request = new Request.Builder()
+                        .url(params[0])
+                        .get()
+                        .build();
+                response=okHttpClient.newCall(request).execute();
+                results=response.body().string();
+                //判断请求是否成功
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return results;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            System.out.println(s);
+            if (s != null){
+                try {
+                    JSONObject results = new JSONObject(s);
+                    String registresult = results.getString("code");
+//                    System.out.println("=======================>"+registresult);
+                    if(regist_cheack.getText().toString().equals(registresult)){
+                        Intent intent=new Intent(RegistActivity.this,
+                                RegistUserActivity.class);
+                        intent.putExtra("phone",regist_username.getText().toString());
+                        intent.putExtra("code",regist_cheack.getText().toString());
+                        startActivity(intent);
+                    }else{
+//                        Toast.makeText(RegistActivity.this,"账号或密码错误",
+//                        Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }else {
+                System.out.println("结果为空");
+                Toast.makeText(RegistActivity.this,"账号或密码有误",
+                        Toast.LENGTH_LONG)
+                        .show();
+
+            }
+        }
     }
 }

@@ -15,7 +15,8 @@
             android:id="@+id/tuijian_image"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_margin="5dp"/>
+            android:layout_margin="5dp"
+            android:background="@drawable/headp4"/>
 
         <TextView
             android:id="@+id/tuijian_username"
@@ -33,8 +34,65 @@
         android:layout_height="match_parent"
         android:textSize="20sp"/>
     <LinearLayout
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
-        android:layout_height="20dp">
+        android:layout_height="25dp"
+        android:orientation="horizontal"
+        android:background="@color/colorlgray">
+        <LinearLayout
+            android:id="@+id/ly_hw"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+        <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/hwp1" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ly_hp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/prp"
+                android:layout_margin="2dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ly_fn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/fnp"
+                android:layout_margin="0dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ly_fy"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/hfp1"
+                android:layout_margin="2dp"/>
+        </LinearLayout>
 
     </LinearLayout>
 

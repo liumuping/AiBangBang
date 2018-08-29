@@ -94,7 +94,7 @@ public class QuestionActivity extends AppCompatActivity {
     private void qusetion() {
         String data = questiondata.getText().toString();//数据
         if (!"".equals(data)) {
-            Qusetion(questiondata.getText().toString(), MainActivity.user.getUserid());
+//            Qusetion(questiondata.getText().toString(), MainActivity.user.getUserid());
         } else {
             Toast.makeText(QuestionActivity.this, "数据不能为空",
                     Toast.LENGTH_SHORT).show();

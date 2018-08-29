@@ -66,6 +66,8 @@
         <activity android:name=".activity.geren.Mymessage.UpdataMyMessageActivity" />
         <activity android:name=".activity.geren.Setting.UpdataPassawordActivity" />
         <activity android:name=".activity.geren.Mymessage.UpdataPhoto" />
+        <activity android:name=".activity.geren.Setting.MyGZActivity" />
+        <activity android:name=".activity.RegistUserActivity" />
 
         <service
             android:name="com.baidu.location.f"
@@ -82,8 +84,8 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name="com.example.administrator.utils.OnItemClickListennet" />
-        <activity android:name=".activity.geren.Setting.MyGZActivity"></activity>
+        <activity android:name=".activity.RegistUserActivity" />
+        <activity android:name=".activity.LoginUserActivity"></activity>
     </application>
 
 </manifest>
