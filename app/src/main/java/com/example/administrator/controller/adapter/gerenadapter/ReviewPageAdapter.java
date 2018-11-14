@@ -5,11 +5,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
 
-import com.example.administrator.controller.activity.geren.WaitHelp.WaitHelpActivity;
+import com.example.administrator.controller.activity.geren.waitHelp.WaitHelpActivity;
 import com.example.administrator.controller.fragment.geren.review.RVhavefragment;
 import com.example.administrator.controller.fragment.geren.review.RVwaitfragment;
-import com.example.administrator.controller.fragment.geren.waithelp.WaitMyacceptfragment;
-import com.example.administrator.controller.fragment.geren.waithelp.WaitMyapplyfragment;
 
 /**
  * Created by Administrator on 2018/4/10.

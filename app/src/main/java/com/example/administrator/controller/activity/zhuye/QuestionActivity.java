@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.administrator.controller.R;
 import com.example.administrator.controller.activity.MainActivity;
+import com.example.administrator.utils.Regex;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,6 +37,13 @@ public class QuestionActivity extends AppCompatActivity {
     private EditText questiondata;
     private TextView fabiao_text;
     private TextView quxiao_text;
+    private EditText time_hours;
+    private EditText time_minutes;
+    private String waittime;
+    private String data;
+    private String hours;
+    private String minutes;
+
 
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
@@ -51,6 +59,10 @@ public class QuestionActivity extends AppCompatActivity {
         questiondata = (EditText) findViewById(R.id.tv_question_data);
         fabiao_text = (TextView) findViewById(R.id.fabiao_text);
         quxiao_text=(TextView) findViewById(R.id.quxiao_text);
+        time_hours=(EditText) findViewById(R.id.time_hours);
+        time_minutes=(EditText)findViewById(R.id.time_minutes);
+
+
 
     }
 
@@ -86,26 +98,33 @@ public class QuestionActivity extends AppCompatActivity {
         fabiao_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                qusetion();
+                data=questiondata.getText().toString();
+                hours=time_hours.getText().toString();
+                minutes=time_minutes.getText().toString();
+                if (Regex.gettime(hours)&Regex.gettime(minutes)) {
+                    waittime = String.valueOf(Integer.valueOf(hours) * 60 + Integer.valueOf(minutes));
+                    System.out.println("======================"+waittime);
+                    qusetion();
+                }else {
+                    Toast.makeText(QuestionActivity.this,"时间输入不准确",Toast.LENGTH_LONG).show();
+//                    System.out.println("时间输入不准确");
+                }
             }
         });
     }
 
     private void qusetion() {
-        String data = questiondata.getText().toString();//数据
         if (!"".equals(data)) {
-//            Qusetion(questiondata.getText().toString(), MainActivity.user.getUserid());
+            Qusetion();
         } else {
             Toast.makeText(QuestionActivity.this, "数据不能为空",
                     Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void Qusetion(String data, int userid) {
-        String questionUrl = "http://10.0.2.2:8080/QuestionServlet";
-
-        //  String questionUrl = "http://192.168.1.106:8080/QuestionServlet";
-        new QuestionAsyncTask().execute(questionUrl, data, String.valueOf(userid));
+    private void Qusetion() {
+        String questionUrl = "http://119.23.226.102/aibangbang/v1/need-help";
+        new QuestionAsyncTask().execute(questionUrl, MainActivity.uid, data,waittime);
     }
 
     private class QuestionAsyncTask extends AsyncTask<String, Integer, String> {
@@ -118,8 +137,9 @@ public class QuestionActivity extends AppCompatActivity {
             String results = null;
             JSONObject json = new JSONObject();
             try {
-                json.put("data", params[1]);
-                json.put("userid", params[2]);
+                json.put("userNeedHelpId", params[1]);
+                json.put("details", params[2]);
+                json.put("willingToWaitTime", params[3]);
                 OkHttpClient okHttpClient = new OkHttpClient();
                 RequestBody requestBody = RequestBody.create(JSON, String.valueOf(json));
                 Request request = new Request.Builder()
@@ -139,29 +159,22 @@ public class QuestionActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-           // System.out.println("=======================>" + s);
             if (s != null) {
+                System.out.println(s);
                 try {
                     JSONObject results = new JSONObject(s);
-                    int questionresult = results.getInt("result");
-                    //System.out.println("=======================>" + questionresult);
-                    if (questionresult != 0) {
+                    String questionresult = results.getString("code");
+                    if ("200".equals(questionresult)) {
                         finish();
                     } else {
-//                        Toast.makeText(QuestionActivity.this,
-//                                "=======================>" + "输入有误",
-//                                Toast.LENGTH_LONG).show();
+                        System.out.println("发起帮助失败1");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-            } else {
-//                System.out.println("结果为空");
-//                Toast.makeText(QuestionActivity.this,
-//                        "=======================>" + "输入有误",
-//                        Toast.LENGTH_LONG)
-//                        .show();
-
+            }
+            else {
+                System.out.println("发起帮助失败2");
             }
         }
     }

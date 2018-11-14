@@ -117,8 +117,7 @@ public class RegistUserActivity extends AppCompatActivity {
                     System.out.println(registresult);
                     if("200".equals(registresult)){
                         Intent intent=new Intent(RegistUserActivity.this,
-                                LoginUserActivity.class);
-                        intent.putExtra("phone",phone);
+                                LoginActivity.class);
                         startActivity(intent);
                         finish();
                     }else{

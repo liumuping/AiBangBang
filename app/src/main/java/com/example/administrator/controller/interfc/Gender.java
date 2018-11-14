@@ -1,5 +1,5 @@
 package com.example.administrator.controller.interfc;
 
 public interface Gender {
-    void inputLoginInforCompleted(String gender);
+    void inputInforCompleted(String gender);
 }

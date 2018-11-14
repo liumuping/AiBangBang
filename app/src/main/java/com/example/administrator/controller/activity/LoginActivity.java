@@ -1,6 +1,5 @@
 package com.example.administrator.controller.activity;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,15 +7,15 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.controller.R;
+import com.example.administrator.controller.activity.geren.setting.FeedBackActivity;
 
 
 import org.json.JSONException;
@@ -41,6 +40,7 @@ public class LoginActivity extends Activity {
     private EditText login_password;
     private Button login_btn;
     private Button regist_btn;
+    private TextView reset_password;
     private CheckBox remember;
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
@@ -83,6 +83,13 @@ public class LoginActivity extends Activity {
                regist();
             }
         });
+        reset_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(LoginActivity.this,ResetRegistActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     private void regist() {
         Intent intent=new Intent(this,RegistActivity.class);
@@ -100,6 +107,7 @@ public class LoginActivity extends Activity {
         login_btn=(Button) findViewById(R.id.login_btn);
         regist_btn=(Button) findViewById(R.id.regist_btn);
         remember=(CheckBox)findViewById(R.id.remember);
+        reset_password=findViewById(R.id.reset_btn);
     }
     private void login() {
 
@@ -181,8 +189,7 @@ public class LoginActivity extends Activity {
                         startActivity(intent);
                         finish();
                     }else{
-                        Toast.makeText(LoginActivity.this,"账号或密码错误",
-                                Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this,"账号或密码错误", Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

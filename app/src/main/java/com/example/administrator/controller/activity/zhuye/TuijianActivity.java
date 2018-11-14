@@ -5,18 +5,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.administrator.controller.R;
 import com.example.administrator.controller.activity.chat.ChatMessageActivity;
-import com.example.administrator.model.bean.TuiJian;
+import com.example.administrator.model.bean.NeedHelp;
+import com.example.administrator.model.bean.User;
 
 public class TuijianActivity extends AppCompatActivity {
     private Button dateshowbase_btn;
-    private TuiJian tuiJian;
+    private NeedHelp tuiJian;
+    private User user;
     private TextView tv_tuijian_data;
+    private TextView tv_tuijian_cre;
+    private TextView tv_tuijian_name;
     private ImageView back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +31,19 @@ public class TuijianActivity extends AppCompatActivity {
     }
 
     private void initdata() {
-        tuiJian= (TuiJian) getIntent().getSerializableExtra("tuiJian");
-        String tuijian_data=tuiJian.getData();
-        tv_tuijian_data.setText(tuijian_data);
+        tuiJian=(NeedHelp) getIntent().getSerializableExtra("tuiJian");
+        user=(User) getIntent().getSerializableExtra("user");
+        tv_tuijian_data.setText(tuiJian.getDetails());
+        tv_tuijian_cre.setText(tuiJian.getCreateDateTime());
+        tv_tuijian_name.setText(user.getNickname());
         Listenner();
     }
 
     private void initview() {
-        dateshowbase_btn=(Button)findViewById(R.id.dateshowbase_btn);
+        dateshowbase_btn=(Button)findViewById(R.id.chat_btn);
         tv_tuijian_data=(TextView)findViewById(R.id.tv_datebase_data);
+        tv_tuijian_cre=(TextView)findViewById(R.id.dateshowbase_cre);
+        tv_tuijian_name=findViewById(R.id.dateshowbase_username);
         back=(ImageView)findViewById(R.id.dateshowbase_im_back);
     }
 

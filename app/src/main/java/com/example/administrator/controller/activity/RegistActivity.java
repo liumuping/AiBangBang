@@ -82,8 +82,6 @@ public class RegistActivity extends AppCompatActivity {
 
     private void Regist(String username) {
         String registUrl ="http://119.23.226.102/aibangbang/v1/register-codes";
-//        String registUrl = "http://10.0.2.2:8080/RegistServlet";
-        // String registUrl = "http://192.168.1.106:8080/RegistServlet";
         new RegistAsyncTask().execute(registUrl, username);
     }
 

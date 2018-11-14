@@ -2,6 +2,7 @@ package com.example.administrator.controller.activity;
 
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -19,10 +20,20 @@ import com.example.administrator.controller.R;
 import com.example.administrator.controller.fragment.chatfragment;
 import com.example.administrator.controller.fragment.gerenfragment;
 import com.example.administrator.controller.fragment.zhuyefragment;
+import com.example.administrator.model.bean.User;
 
 
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 
 public class MainActivity extends FragmentActivity  {
@@ -30,15 +41,15 @@ public class MainActivity extends FragmentActivity  {
     private List<BaseFragment> mBaseFragment;
     private int position;
     private Fragment mContent;
-//    public  static UserBaseInfo user=new UserBaseInfo();
+    public  static User user=new User();
     public  static String uid;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         uid =intent.getStringExtra("uid");
+        getUser(uid);
         initView();
-//        System.out.println("----------->"+user.getUserid());
         initFragment();
         setListener();
     }
@@ -127,4 +138,68 @@ public class MainActivity extends FragmentActivity  {
         radioGroup=(RadioGroup)findViewById(R.id.rd_group);
 
     }
+        private void getUser(String uid) {
+            String registUrl ="http://119.23.226.102/aibangbang/v1/users/"+uid;
+            System.out.println(registUrl);
+            new GetUserAsyncTask().execute(registUrl, uid);
+        }
+
+        private class GetUserAsyncTask extends AsyncTask<String, Integer, String> {
+            public GetUserAsyncTask() {
+            }
+            @Override
+            protected String doInBackground(String... params) {
+                Response response = null;
+                String results = null;
+                try {
+                    OkHttpClient okHttpClient = new OkHttpClient();
+                    Request request = new Request.Builder()
+                            .url(params[0])
+                            .get()
+                            .build();
+                    response=okHttpClient.newCall(request).execute();
+                    results=response.body().string();
+                    //判断请求是否成功
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return results;
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+//                System.out.println(s);
+                if (s != null){
+                    try {
+                        JSONObject results = new JSONObject(s);
+                                // 将数据封装为user对象
+                                user.setId(results.getInt("id"));
+                                user.setPhone(results.getString("phone"));
+                                String s1=results.get("age").toString();
+                                System.out.println(s1);;
+                                if (s1.equals("null")){
+                                    user.setAge(0);
+                                }else {
+                                    user.setAge(results.getInt("age"));
+                                }
+                                if (results.get("gender").toString().equals("null")){
+                                    user.setGender(" ");
+                                }else {
+                                    user.setGender(results.getString("gender"));
+                                }
+                                if (results.get("nickname").toString().equals("null")){
+                                    user.setNickname(" ");
+                                }else {
+                                    user.setNickname(results.getString("nickname"));
+                                }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }else {
+                    System.out.println("获取信息失败");
+
+                }
+            }
+        }
+
 }

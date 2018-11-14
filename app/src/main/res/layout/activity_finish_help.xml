@@ -62,7 +62,7 @@
                 android:button="@null"
                 android:gravity="center"
                 android:paddingTop="3dp"
-                android:text="我接收的"
+                android:text="我提供的"
                 android:textColor="@drawable/rg_textcolor_selector"
                 android:textSize="15sp" />
         </RadioGroup>

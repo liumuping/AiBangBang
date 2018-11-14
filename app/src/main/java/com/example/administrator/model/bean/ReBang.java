@@ -7,51 +7,107 @@ import java.io.Serializable;
  */
 
 public class ReBang implements Serializable{
-
-    private String name;
+    private String nickname;
     private int imageId;
-    private String data;
-    private int rbid;
-    private int userid;
+    private int needHelpId;
+    private int userNeedHelpId;
+    private int status;
+    private String details;
+    private String createDateTime;
+    private String willingToWaitTime;
+    private String endDateTime;
+    private String userComment;
+    private String userCommentDateTime;
 
-    public int getRbid() {
-        return rbid;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setRbid(int rbid) {
-        this.rbid = rbid;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
-    public int getUserid() {
-        return userid;
-    }
-
-    public void setUserid(int userid) {
-        this.userid = userid;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public int getImageId() {
+        return imageId;
     }
 
     public void setImageId(int imageId) {
         this.imageId = imageId;
     }
 
-    public String getData() {
-        return data;
+    public int getNeedHelpId() {
+        return needHelpId;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setNeedHelpId(int needHelpId) {
+        this.needHelpId = needHelpId;
+    }
+
+    public int getUserNeedHelpId() {
+        return userNeedHelpId;
+    }
+
+    public void setUserNeedHelpId(int userNeedHelpId) {
+        this.userNeedHelpId = userNeedHelpId;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public String getCreateDateTime() {
+        return createDateTime;
+    }
+
+    public void setCreateDateTime(String createDateTime) {
+        this.createDateTime = createDateTime;
+    }
+
+    public String getWillingToWaitTime() {
+        return willingToWaitTime;
+    }
+
+    public void setWillingToWaitTime(String willingToWaitTime) {
+        this.willingToWaitTime = willingToWaitTime;
+    }
+
+    public String getEndDateTime() {
+        return endDateTime;
+    }
+
+    public void setEndDateTime(String endDateTime) {
+        this.endDateTime = endDateTime;
+    }
+
+    public String getUserComment() {
+        return userComment;
+    }
+
+    public void setUserComment(String userComment) {
+        this.userComment = userComment;
+    }
+
+    public String getUserCommentDateTime() {
+        return userCommentDateTime;
+    }
+
+    public void setUserCommentDateTime(String userCommentDateTime) {
+        this.userCommentDateTime = userCommentDateTime;
     }
 
 
-    public String getName(){
-        return name;
-    }
-    public int getImageId(){
-        return imageId;
-    }
-    
+
+
 }

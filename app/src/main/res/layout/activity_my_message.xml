@@ -56,7 +56,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                android:src="@color/colormblue" />
+                android:background="@drawable/shape_biankuang" />
         </LinearLayout>
     </LinearLayout>
 
@@ -75,32 +75,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/my_message_username"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:background="@null"
-            android:gravity="center_vertical"
-            android:maxLength="16"
-            android:singleLine="true" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/shape_biankuang"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="手机"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/my_message_phone"
+            android:id="@+id/my_message_nickname"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
@@ -125,7 +100,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/my_message_sex"
+            android:id="@+id/my_message_gender"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
@@ -160,16 +135,22 @@
             android:singleLine="true" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/updata_my_message"
-        android:layout_width="120dp"
-        android:layout_height="60dp"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginTop="50dp"
-        android:gravity="center"
-        android:text="编辑信息"
-        android:textColor="@color/colorPrimaryWhite"
-        android:textSize="20sp"
-        android:background="@color/colorhblue"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:gravity="right">
+
+        <Button
+            android:id="@+id/updata_my_message"
+            android:layout_width="81dp"
+            android:layout_height="42dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/shape_blue"
+            android:text="编辑信息" />
+
+    </LinearLayout>
 
 </LinearLayout>

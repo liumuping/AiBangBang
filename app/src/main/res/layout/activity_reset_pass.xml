@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg3"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="45dp">
+        <EditText
+            android:id="@+id/regist_username"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:paddingLeft="20dp"
+            android:gravity="left"
+            android:hint="请输入手机号"
+            android:maxLength="16"
+            android:singleLine="true"
+            android:textColor="@color/colorPrimaryWhite"
+            android:textColorHint="@color/colorPrimaryWhite"
+            android:textCursorDrawable="@null"
+            android:textSize="16dp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="45dp">
+        <EditText
+            android:id="@+id/regist_password"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:paddingLeft="20dp"
+            android:gravity="left"
+            android:hint="请输入密码"
+            android:maxLength="16"
+            android:singleLine="true"
+            android:textColor="@color/colorPrimaryWhite"
+            android:textColorHint="@color/colorPrimaryWhite"
+            android:textCursorDrawable="@null"
+            android:textSize="16sp"
+            android:cursorVisible="false"
+            android:inputType="none"
+            android:textIsSelectable="false"/>
+
+
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:gravity="right">
+        <Button
+            android:id="@+id/regist_cheack_btn"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="确认"
+            android:background="@drawable/shape_corner"
+            />
+
+    </LinearLayout>
+</LinearLayout>

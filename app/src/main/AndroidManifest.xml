@@ -44,30 +44,42 @@
             android:name=".activity.LoginActivity"
             android:configChanges="keyboardHidden"
             android:theme="@style/LauncherActivityTheme" />
+        <activity android:name=".activity.RegistActivity" />
+        <activity android:name=".activity.RegistUserActivity" />
+        <activity android:name=".activity.LoginUserActivity"/>
         <activity android:name=".activity.zhuye.SearchActivity" />
         <activity android:name=".activity.zhuye.RebangActivity" />
-        <activity android:name=".activity.RegistActivity" />
-        <activity android:name=".activity.zhuye.QuestionActivity" />
-        <activity android:name=".activity.geren.Setting.SettingActivity" />
-        <activity android:name=".activity.geren.Review.ReviewActivity" />
-        <activity android:name=".activity.geren.Mymessage.MyMessageActivity" />
-        <activity android:name=".activity.geren.WaitHelp.WaitHelpActivity" />
-        <activity android:name=".activity.geren.Finish.FinishHelpActivity" />
         <activity android:name=".activity.zhuye.TuijianActivity" />
+        <activity android:name=".activity.zhuye.QuestionActivity" />
+        <activity android:name=".activity.zhuye.UpdateQuestionActivity"/>
+        <activity android:name=".activity.zhuye.CommentOferActivity"/>
+        <activity android:name=".activity.zhuye.CommentQuesActivity"/>
         <activity android:name=".activity.chat.ChatMessageActivity" />
         <activity android:name=".activity.chat.SearchPeopleActivity" />
-        <activity android:name=".activity.geren.Finish.FHapplyActivity" />
-        <activity android:name=".activity.geren.Review.RVhaveActivity" />
-        <activity android:name=".activity.geren.Finish.FHacceptActivity" />
-        <activity android:name=".activity.geren.WaitHelp.WHacceptActivity" />
-        <activity android:name=".activity.geren.WaitHelp.WHapplyActivity" />
-        <activity android:name=".activity.geren.Review.RVwaitActivity" />
-        <activity android:name=".activity.geren.Setting.LocationActivity" />
-        <activity android:name=".activity.geren.Mymessage.UpdataMyMessageActivity" />
-        <activity android:name=".activity.geren.Setting.UpdataPassawordActivity" />
-        <activity android:name=".activity.geren.Mymessage.UpdataPhoto" />
-        <activity android:name=".activity.geren.Setting.MyGZActivity" />
-        <activity android:name=".activity.RegistUserActivity" />
+        <activity android:name=".activity.geren.setting.SettingActivity" />
+        <activity android:name=".activity.geren.review.ReviewActivity" />
+        <activity android:name=".activity.geren.mymessage.MyMessageActivity" />
+        <activity android:name=".activity.geren.waitHelp.WaitHelpActivity" />
+        <activity android:name=".activity.geren.finish.FinishHelpActivity" />
+        <activity android:name=".activity.geren.finish.FHapplyActivity" />
+        <activity android:name=".activity.geren.review.RVhaveActivity" />
+        <activity android:name=".activity.geren.finish.FHacceptActivity" />
+        <activity android:name=".activity.geren.waitHelp.WHacceptActivity" />
+        <activity android:name=".activity.geren.waitHelp.WHapplyActivity" />
+        <activity android:name=".activity.geren.review.RVwaitActivity" />
+        <activity android:name=".activity.geren.setting.LocationActivity" />
+        <activity android:name=".activity.geren.mymessage.UpdataMyMessageActivity" />
+        <activity android:name=".activity.geren.setting.UpdataPassawordActivity" />
+        <activity android:name=".activity.geren.mymessage.UpdataPhoto" />
+        <activity android:name=".activity.geren.setting.MyGZActivity" />
+        <activity android:name=".activity.ResetRegistActivity"/>
+        <activity android:name=".activity.ResetPasActivity"/>
+        <activity android:name=".activity.geren.setting.FeedBackActivity"/>
+        <activity android:name=".activity.geren.cuurent.CHapplyActivity"/>
+        <activity android:name=".activity.geren.cuurent.CHacceptActivity"/>
+        <activity android:name=".activity.geren.cuurent.CurrentHelpActivity"/>
+
+
 
         <service
             android:name="com.baidu.location.f"
@@ -84,8 +96,6 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".activity.RegistUserActivity" />
-        <activity android:name=".activity.LoginUserActivity"></activity>
     </application>
 
 </manifest>

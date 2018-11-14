@@ -43,7 +43,7 @@
                 android:button="@null"
                 android:gravity="center"
                 android:paddingTop="3dp"
-                android:text="我发起的"
+                android:text="请求帮助"
                 android:textColor="@drawable/rg_textcolor_selector"
                 android:textSize="15sp" />
 
@@ -60,7 +60,7 @@
                 android:button="@null"
                 android:gravity="center"
                 android:paddingTop="3dp"
-                android:text="我接收的"
+                android:text="提供帮助"
                 android:textColor="@drawable/rg_textcolor_selector"
                 android:textSize="15sp" />
         </RadioGroup>

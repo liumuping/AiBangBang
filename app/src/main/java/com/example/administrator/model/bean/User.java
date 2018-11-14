@@ -1,20 +1,37 @@
 package com.example.administrator.model.bean;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class User {
-
-    private Integer id;
+public class User implements Serializable {
+    private int id;
+    private int age;
     private String phone;
     private String password;
     private String salt;
     private String gender;
-    private Integer age;
     private String nickname;
-
     private Timestamp registerTime;
     private Timestamp lastActiveTime;
+    private String oldPassword;
+    private String newPassword;
 
+
+    public String getOldPassword() {
+        return oldPassword;
+    }
+
+    public void setOldPassword(String oldPassword) {
+        this.oldPassword = oldPassword;
+    }
+
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
+    }
 
     public Timestamp getRegisterTime() {
         return registerTime;
@@ -30,14 +47,6 @@ public class User {
 
     public void setLastActiveTime(Timestamp lastActiveTime) {
         this.lastActiveTime = lastActiveTime;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getPhone() {
@@ -72,19 +81,27 @@ public class User {
         this.gender = gender;
     }
 
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
     public String getNickname() {
         return nickname;
     }
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }
